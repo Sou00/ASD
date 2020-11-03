@@ -11,21 +11,20 @@ using namespace std;
 
 void HeapSort::heapify(int arr[], int n, int i)
 {
-    int largest = i;
+    int biggest = i;
     int l = 2*i + 1;
     int r = 2*i + 2;
 
-    if (l < n && arr[l] > arr[largest])
-        largest = l;
+    if (l < n && arr[l] > arr[biggest])
+        biggest = l;
 
-    if (r < n && arr[r] > arr[largest])
-        largest = r;
+    if (r < n && arr[r] > arr[biggest])
+        biggest = r;
 
-    if (largest != i)
+    if (biggest != i)
     {
-        swap(arr[i], arr[largest]);
-
-        heapify(arr, n, largest);
+        swap(arr[i], arr[biggest]);
+        heapify(arr, n, biggest);
     }
 }
 
@@ -46,7 +45,7 @@ void HeapSort::sort()
 }
 void HeapSort::print()
 {
-    for (int i=0; i<length; ++i)
+    for (int i=0; i < length; ++i)
         cout << a[i] << " ";
-    cout << "\n";
+    cout << endl;
 }
